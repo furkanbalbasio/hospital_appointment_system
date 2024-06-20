@@ -1,2 +1,7 @@
 rootProject.name = 'HospitalAppointmentSystem'
+include 'AppointmentService'
+include 'DoctorService'
+include 'PatienceService'
+include 'AdminService'
+include 'SecretaryService'
 

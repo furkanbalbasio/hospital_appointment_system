@@ -8,6 +8,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/AdminService" />
+            <option value="$PROJECT_DIR$/AppointmentService" />
+            <option value="$PROJECT_DIR$/DoctorService" />
+            <option value="$PROJECT_DIR$/PatienceService" />
+            <option value="$PROJECT_DIR$/SecretaryService" />
           </set>
         </option>
       </GradleProjectSettings>
