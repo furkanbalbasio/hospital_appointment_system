@@ -15,5 +15,11 @@ import lombok.NoArgsConstructor;
 public class Patience {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
+    private String name;
+    private String surname;
+    private String tcNumber;
+    private String phone;
+    private String email;
+    private String password;
 }

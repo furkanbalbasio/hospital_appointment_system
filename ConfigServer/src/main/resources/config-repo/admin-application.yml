@@ -1,0 +1,16 @@
+server:
+  port: 9095
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/HasAdminDB
+  jpa:
+    hibernate:
+      ddl-auto: update
+my-application:
+  doctor-end-point: http://localhost:9091/doctor
+  secret-key: "bAjAfl&ato9ruwrichlyUc1Lfaprafr8soNoCr!BramaTR7mojicr1wRI0*oC3is"
+  secret-key-2: ${SECRETKEY}

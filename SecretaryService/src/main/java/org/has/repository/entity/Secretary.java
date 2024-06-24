@@ -15,5 +15,10 @@ import lombok.NoArgsConstructor;
 public class Secretary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
+    private String name;
+    private String surname;
+    private String phone;
+    private String email;
+    private String password;
 }

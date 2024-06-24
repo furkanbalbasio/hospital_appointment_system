@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.has.utility.enums.EDepartment;
 
 @Data
 @NoArgsConstructor
@@ -15,5 +16,10 @@ import lombok.NoArgsConstructor;
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
+    private String name;
+    private String surname;
+    private EDepartment department;
+    private String phone;
+    private String email;
 }

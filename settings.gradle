@@ -4,4 +4,6 @@ include 'DoctorService'
 include 'PatienceService'
 include 'AdminService'
 include 'SecretaryService'
+include 'ConfigServer'
+include 'AuthService'
 

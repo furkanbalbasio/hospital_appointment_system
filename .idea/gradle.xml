@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -10,6 +11,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AdminService" />
             <option value="$PROJECT_DIR$/AppointmentService" />
+            <option value="$PROJECT_DIR$/AuthService" />
+            <option value="$PROJECT_DIR$/ConfigServer" />
             <option value="$PROJECT_DIR$/DoctorService" />
             <option value="$PROJECT_DIR$/PatienceService" />
             <option value="$PROJECT_DIR$/SecretaryService" />
