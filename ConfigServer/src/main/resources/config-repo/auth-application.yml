@@ -9,7 +9,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/HasAuthDB
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
 
 my-application:
   patience-end-point: http://localhost:9092/patience

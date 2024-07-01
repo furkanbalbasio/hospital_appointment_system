@@ -21,7 +21,7 @@ public class AdminService {
     private final DoctorManager doctorManager;
 
     public String login(LoginRequestDto dto) {
-        Optional<Admin> auth = adminRepository.findOptionalByUserNameAndPassword(dto.getUserName(),dto.getPassword());
+        Optional<Admin> auth = adminRepository.findOptionalByUsernameAndPassword(dto.getUsermame(),dto.getPassword());
         if(auth.isEmpty()) throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
 
         Optional<String> jwtToken = jwtTokenManager.createToken(auth.get().getId());

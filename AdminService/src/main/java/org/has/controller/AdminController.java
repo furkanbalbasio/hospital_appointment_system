@@ -30,7 +30,7 @@ public class AdminController {
                         .build())
                 .build());
     }
-
+    @PostMapping(CREATEDOCTOR)
     public ResponseEntity<Void> createDoctor(String token, DoctorSaveRequestDto dto){
         adminService.createDoctor(token,dto);
         return ResponseEntity.ok().build();

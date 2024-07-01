@@ -9,4 +9,4 @@ spring:
     url: jdbc:postgresql://localhost:5432/HasPatienceDB
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create

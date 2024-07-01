@@ -9,7 +9,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/HasAdminDB
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
 my-application:
   doctor-end-point: http://localhost:9091/doctor
   secret-key: "bAjAfl&ato9ruwrichlyUc1Lfaprafr8soNoCr!BramaTR7mojicr1wRI0*oC3is"
