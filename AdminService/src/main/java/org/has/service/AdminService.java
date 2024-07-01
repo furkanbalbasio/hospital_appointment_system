@@ -29,7 +29,6 @@ public class AdminService {
             throw new AdminException(ErrorType.TOKEN_ERROR);
         return jwtToken.get();
     }
-
     public void createDoctor(String token,DoctorSaveRequestDto dto) {
         boolean isAdmin=jwtTokenManager.validateToken(token);
         if (isAdmin){
