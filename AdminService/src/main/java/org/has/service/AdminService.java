@@ -3,6 +3,7 @@ package org.has.service;
 import lombok.RequiredArgsConstructor;
 import org.has.dto.request.DoctorSaveRequestDto;
 import org.has.dto.request.LoginRequestDto;
+import org.has.dto.response.DoctorFindallResponseDto;
 import org.has.exception.AdminException;
 import org.has.exception.ErrorType;
 import org.has.manager.DoctorManager;
@@ -11,6 +12,7 @@ import org.has.repository.entity.Admin;
 import org.has.utility.JwtTokenManager;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,6 +37,15 @@ public class AdminService {
             doctorManager.save(dto);
         }else {
             throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
+
         }
+    }
+
+    public List<DoctorFindallResponseDto> findAllDoctor(String token) {
+        boolean isAdmin=jwtTokenManager.validateToken(token);
+        if (!isAdmin){
+            throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
+        }
+        return (List<DoctorFindallResponseDto>) doctorManager.findall();
     }
 }
