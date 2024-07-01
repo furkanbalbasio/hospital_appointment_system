@@ -21,18 +21,16 @@ public class DoctorService {
         return doctor;
     }
 
-    public List<DoctorFindallResponseDto> findAll() {
+    public List<Doctor> findAll() {
 
         List<Doctor> doctors = doctorRepository.findAll();
-        return doctors.stream()
-                .map(this::convertToDto)
-                .collect(Collectors.toList());
+        return doctors;
     }
 
-    private DoctorFindallResponseDto convertToDto(Doctor doctor) {
-        // Doctor nesnesini DoctorFindallResponseDto'ya dönüştürme işlemi
-        return new DoctorFindallResponseDto();
-    }
+//    private DoctorFindallResponseDto convertToDto(Doctor doctor) {
+//        // Doctor nesnesini DoctorFindallResponseDto'ya dönüştürme işlemi
+//        return new DoctorFindallResponseDto();
+//    }
 
     }
 

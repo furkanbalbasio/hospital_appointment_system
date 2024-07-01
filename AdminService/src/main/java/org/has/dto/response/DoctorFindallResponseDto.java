@@ -11,6 +11,7 @@ import org.has.utility.enums.EDepartment;
 @NoArgsConstructor
 @Data
 public class DoctorFindallResponseDto {
+    Long doctorId;
     String name;
     String surname;
     EDepartment department;

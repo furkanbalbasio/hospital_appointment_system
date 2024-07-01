@@ -24,8 +24,8 @@ public class DoctorController {
         return ResponseEntity.ok().build();
     }
     @GetMapping("/find-all")
-    public ResponseEntity<List<DoctorFindallResponseDto>> findall() {
-        List<DoctorFindallResponseDto> doctors = doctorService.findAll();
+    public ResponseEntity<List<Doctor>> findall() {
+        List<Doctor> doctors = doctorService.findAll();
         return ResponseEntity.ok(doctors);
     }
 }
