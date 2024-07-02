@@ -1,4 +1,4 @@
-package org.has.dto.response;
+package org.has.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,17 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.has.utility.enums.EDepartment;
 
-import java.util.UUID;
-
-@Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class DoctorFindAllResponseDto {
-    Long doctorId;
-    UUID uuid;
-    String name;
-    String surname;
+@Builder
+public class DoctorUpdateRequestDto {
     EDepartment department;
     String phone;
     String email;

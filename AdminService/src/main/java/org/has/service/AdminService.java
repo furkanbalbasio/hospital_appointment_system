@@ -2,6 +2,7 @@ package org.has.service;
 
 import lombok.RequiredArgsConstructor;
 import org.has.dto.request.DoctorSaveRequestDto;
+import org.has.dto.request.DoctorUpdateRequestDto;
 import org.has.dto.request.LoginRequestDto;
 import org.has.dto.response.DoctorFindAllResponseDto;
 import org.has.exception.AdminException;
@@ -47,5 +48,15 @@ public class AdminService {
             throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
         }
         return doctorManager.findAll().getBody();
+    }
+
+    public void updateDoctor(String token, DoctorUpdateRequestDto dto){
+        boolean isAdmin=jwtTokenManager.validateToken(token);
+        if (isAdmin){
+            doctorManager.update(dto);
+        }else {
+            throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
+
+        }
     }
 }

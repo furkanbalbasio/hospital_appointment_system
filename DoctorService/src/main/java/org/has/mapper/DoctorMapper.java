@@ -1,6 +1,7 @@
 package org.has.mapper;
 
 import org.has.dto.request.DoctorSaveRequestDto;
+import org.has.dto.request.DoctorUpdateRequestDto;
 import org.has.dto.response.DoctorFindallResponseDto;
 import org.has.repository.entity.Doctor;
 import org.mapstruct.Mapper;
@@ -16,6 +17,6 @@ public interface DoctorMapper {
 
     Doctor fromDto(final DoctorSaveRequestDto dto);
     List<DoctorFindallResponseDto> toDoctor(final List<Doctor> doctors);
-
+    Doctor fromDto(final DoctorUpdateRequestDto dto);
 
 }

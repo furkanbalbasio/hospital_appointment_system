@@ -3,6 +3,7 @@ package org.has.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.has.dto.request.DoctorSaveRequestDto;
+import org.has.dto.request.DoctorUpdateRequestDto;
 import org.has.dto.request.LoginRequestDto;
 import org.has.dto.response.BaseResponseDto;
 import org.has.dto.response.DoctorFindAllResponseDto;
@@ -37,6 +38,7 @@ public class AdminController {
         adminService.createDoctor(token,dto);
         return ResponseEntity.ok().build();
     }
+
     @GetMapping(FINDALLDOCTOR)
     public ResponseEntity<FindAllResponseDto> findAllDoctor(String token){
         return ResponseEntity.ok(FindAllResponseDto.builder()
@@ -44,5 +46,10 @@ public class AdminController {
                         .statusCode(200)
                         .data(adminService.findAllDoctor(token))
                 .build());
+    }
+    @PutMapping(UPDATEDOCTOR)
+    public ResponseEntity<Void> updateDoctor(String token, DoctorUpdateRequestDto dto){
+        adminService.updateDoctor(token,dto);
+        return ResponseEntity.ok().build();
     }
 }
