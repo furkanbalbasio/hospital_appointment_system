@@ -2,7 +2,7 @@ package org.has.manager;
 
 import jakarta.validation.Valid;
 import org.has.dto.request.DoctorSaveRequestDto;
-import org.has.dto.response.DoctorFindallResponseDto;
+import org.has.dto.response.DoctorFindAllResponseDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,5 +16,5 @@ public interface DoctorManager {
     @PostMapping("/save")
     ResponseEntity<Void> save(@RequestBody @Valid DoctorSaveRequestDto dto);
     @GetMapping("/find-all")
-    ResponseEntity<List<DoctorFindallResponseDto>> findall();
+    ResponseEntity<List<DoctorFindAllResponseDto>> findAll();
 }

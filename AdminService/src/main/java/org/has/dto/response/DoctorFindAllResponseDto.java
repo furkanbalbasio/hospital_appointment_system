@@ -10,7 +10,7 @@ import org.has.utility.enums.EDepartment;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class DoctorFindallResponseDto {
+public class DoctorFindAllResponseDto {
     Long doctorId;
     String name;
     String surname;

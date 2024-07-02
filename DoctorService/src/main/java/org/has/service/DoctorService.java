@@ -22,7 +22,6 @@ public class DoctorService {
     }
 
     public List<Doctor> findAll() {
-
         List<Doctor> doctors = doctorRepository.findAll();
         return doctors;
     }

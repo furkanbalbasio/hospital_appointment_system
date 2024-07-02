@@ -5,13 +5,12 @@ import lombok.RequiredArgsConstructor;
 import org.has.dto.request.DoctorSaveRequestDto;
 import org.has.dto.request.LoginRequestDto;
 import org.has.dto.response.BaseResponseDto;
-import org.has.dto.response.DoctorFindallResponseDto;
+import org.has.dto.response.DoctorFindAllResponseDto;
+import org.has.dto.response.FindAllResponseDto;
 import org.has.dto.response.LoginResponseDto;
 import org.has.service.AdminService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 import static org.has.constants.RestApiUrls.*;
 import static org.has.constants.RestApiUrls.LOGIN;
@@ -39,7 +38,11 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
     @GetMapping(FINDALLDOCTOR)
-    public ResponseEntity<List<DoctorFindallResponseDto>> findAllDoctor(String token){
-        return ResponseEntity.ok(adminService.findAllDoctor(token));
+    public ResponseEntity<FindAllResponseDto> findAllDoctor(String token){
+        return ResponseEntity.ok(FindAllResponseDto.builder()
+                        .message("basarili")
+                        .statusCode(200)
+                        .data(adminService.findAllDoctor(token))
+                .build());
     }
 }
