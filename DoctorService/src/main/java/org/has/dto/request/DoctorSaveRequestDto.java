@@ -11,6 +11,7 @@ import org.has.utility.enums.EDepartment;
 @AllArgsConstructor
 @Builder
 public class DoctorSaveRequestDto {
+     String registrationNumber;
      String name;
      String surname;
      EDepartment department;

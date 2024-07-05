@@ -14,7 +14,7 @@ import java.util.UUID;
 @Data
 public class DoctorFindAllResponseDto {
     Long id;
-//    UUID uuid;
+    String registrationNumber;
     String name;
     String surname;
     EDepartment department;

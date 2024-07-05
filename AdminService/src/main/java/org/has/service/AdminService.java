@@ -24,37 +24,39 @@ public class AdminService {
     private final DoctorManager doctorManager;
 
     public String login(LoginRequestDto dto) {
-        Optional<Admin> auth = adminRepository.findOptionalByUsernameAndPassword(dto.getUsermame(),dto.getPassword());
-        if(auth.isEmpty()) throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
+        Optional<Admin> auth = adminRepository.findOptionalByUsernameAndPassword(dto.getUsermame(), dto.getPassword());
+        if (auth.isEmpty()) throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
 
         Optional<String> jwtToken = jwtTokenManager.createToken(auth.get().getId());
-        if(jwtToken.isEmpty())
+        if (jwtToken.isEmpty())
             throw new AdminException(ErrorType.TOKEN_ERROR);
         return jwtToken.get();
     }
-    public void createDoctor(String token,DoctorSaveRequestDto dto) {
-        boolean isAdmin=jwtTokenManager.validateToken(token);
-        if (isAdmin){
+
+    public void createDoctor(String token, DoctorSaveRequestDto dto) {
+        boolean isAdmin = jwtTokenManager.validateToken(token);
+        if (isAdmin) {
             doctorManager.save(dto);
-        }else {
+        } else {
             throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
 
         }
     }
 
     public List<DoctorFindAllResponseDto> findAllDoctor(String token) {
-        boolean isAdmin=jwtTokenManager.validateToken(token);
-        if (!isAdmin){
+        boolean isAdmin = jwtTokenManager.validateToken(token);
+        if (!isAdmin) {
             throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
         }
         return doctorManager.findAll().getBody();
     }
 
-    public void updateDoctor(String token,DoctorUpdateRequestDto dto){
-        boolean isAdmin=jwtTokenManager.validateToken(token);
-        if (isAdmin){
-            doctorManager.update(dto);
-        }else {
+
+   public void updateDoctor(String token, String registrationNumber, DoctorUpdateRequestDto dto) {
+        boolean isAdmin = jwtTokenManager.validateToken(token);
+        if (isAdmin) {
+            doctorManager.update(registrationNumber,dto);
+        } else {
             throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
         }
     }

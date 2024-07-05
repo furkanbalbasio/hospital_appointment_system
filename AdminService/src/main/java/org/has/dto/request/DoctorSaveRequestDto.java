@@ -14,7 +14,8 @@ import java.util.UUID;
 @Builder
 public class DoctorSaveRequestDto {
 //     UUID uuid;
-     Long id;
+ //    Long id;
+     String registrationNumber;
      String name;
      String surname;
      EDepartment department;
