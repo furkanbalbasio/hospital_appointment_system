@@ -19,8 +19,8 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, unique = true)
-    private UUID uuid;
+//    @Column(nullable = false, unique = true)
+//    private UUID uuid;
     private String name;
     private String surname;
     private EDepartment department;

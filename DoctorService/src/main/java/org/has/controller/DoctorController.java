@@ -30,9 +30,9 @@ public class DoctorController {
         List<Doctor> doctors = doctorService.findAll();
         return ResponseEntity.ok(doctors);
     }
-    @PutMapping("/update")
-    public ResponseEntity<Doctor> update(@RequestBody @Valid DoctorUpdateRequestDto dto){
-        Doctor doctor =doctorService.update(dto);
-        return ResponseEntity.ok().build();
-    }
+//    @PutMapping("/update")
+//    public ResponseEntity<Doctor> update(@RequestBody @Valid DoctorUpdateRequestDto dto){
+//        Doctor doctor =doctorService.update(dto);
+//        return ResponseEntity.ok().build();
+//    }
 }

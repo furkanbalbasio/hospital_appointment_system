@@ -50,13 +50,12 @@ public class AdminService {
         return doctorManager.findAll().getBody();
     }
 
-    public void updateDoctor(String token, DoctorUpdateRequestDto dto){
+    public void updateDoctor(String token,DoctorUpdateRequestDto dto){
         boolean isAdmin=jwtTokenManager.validateToken(token);
         if (isAdmin){
             doctorManager.update(dto);
         }else {
             throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
-
         }
     }
 }

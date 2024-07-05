@@ -13,8 +13,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @Data
 public class DoctorFindAllResponseDto {
-    Long doctorId;
-    UUID uuid;
+    Long id;
+//    UUID uuid;
     String name;
     String surname;
     EDepartment department;

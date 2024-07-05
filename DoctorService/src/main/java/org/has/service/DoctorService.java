@@ -21,7 +21,7 @@ public class DoctorService {
 
     public Doctor save(DoctorSaveRequestDto dto) {
         Doctor doctor= doctorRepository.save(DoctorMapper.INSTANCE.fromDto(dto));
-        doctor.setUuid(UUID.randomUUID()); // save den önce set etmesi gerekmiyor mu ?!
+//        doctor.setUuid(UUID.randomUUID()); // save den önce set etmesi gerekmiyor mu ?!
         return doctor;
     }
 
@@ -29,16 +29,16 @@ public class DoctorService {
         List<Doctor> doctors = doctorRepository.findAll();
         return doctors;
     }
-    public Doctor update(DoctorUpdateRequestDto dto){
-        Optional<Doctor> doctorOptional = doctorRepository.findByUuid(dto.getUuid());
-        if (doctorOptional.isPresent()) {
-            Doctor doctor = doctorOptional.get();
-          //  doctorMapper.updateEntity(dto, doctor);
-            return doctorRepository.save(doctor);
-        } else {
-            throw new RuntimeException("Doctor bulunamadı");
-        }
-    }
+//    public Doctor update(DoctorUpdateRequestDto dto){
+//        Optional<Doctor> doctorOptional = doctorRepository.findByUuid(dto.getUuid());
+//        if (doctorOptional.isPresent()) {
+//            Doctor doctor = doctorOptional.get();
+//          //  doctorMapper.updateEntity(dto, doctor);
+//            return doctorRepository.save(doctor);
+//        } else {
+//            throw new RuntimeException("Doctor bulunamadı");
+//        }
+//    }
 
     }
 
