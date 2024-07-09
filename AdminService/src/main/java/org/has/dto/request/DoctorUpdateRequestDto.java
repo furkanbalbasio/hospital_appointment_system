@@ -11,7 +11,6 @@ import org.has.utility.enums.EDepartment;
 @NoArgsConstructor
 @Builder
 public class DoctorUpdateRequestDto {
-
     EDepartment department;
     String phone;
     String email;

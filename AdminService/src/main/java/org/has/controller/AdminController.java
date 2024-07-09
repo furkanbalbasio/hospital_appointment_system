@@ -48,8 +48,15 @@ public class AdminController {
                 .build());
     }
     @PutMapping("/{registrationNumber}/update")
-    public ResponseEntity<Void> updateDoctor(String token,@PathVariable String registrationNumber, DoctorUpdateRequestDto dto){
+    public ResponseEntity<Void> updateDoctor(String token,@PathVariable String registrationNumber,@RequestBody DoctorUpdateRequestDto dto){
         adminService.updateDoctor(token, registrationNumber,dto);
         return ResponseEntity.ok().build();
     }
+    @DeleteMapping("/{registrationNumber}/delete")
+    public ResponseEntity<Void> deleteDoctor(String token, @PathVariable String registrationNumber){
+        adminService.deleteDoctor(token, registrationNumber);
+        return ResponseEntity.ok().build();
+    }
+
+
 }

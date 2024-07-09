@@ -60,4 +60,13 @@ public class AdminService {
             throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
         }
     }
+
+    public void deleteDoctor(String token, String registrationNumber) {
+        boolean isAdmin = jwtTokenManager.validateToken(token);
+        if (isAdmin) {
+            doctorManager.delete(registrationNumber);
+        } else {
+            throw new AdminException(ErrorType.USERNAME_PASSWORD_ERROR);
+        }
+    }
 }

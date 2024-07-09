@@ -29,8 +29,13 @@ public class DoctorController {
         return ResponseEntity.ok(doctors);
     }
     @PutMapping("/{registrationNumber}/update")
-    public ResponseEntity<Void> update(@PathVariable String registrationNumber, DoctorUpdateRequestDto dto){
+    public ResponseEntity<Void> update(@PathVariable String registrationNumber,@RequestBody DoctorUpdateRequestDto dto){
         doctorService.update(registrationNumber,dto);
         return ResponseEntity.ok().build();
   }
+    @DeleteMapping("/{registrationNumber}/delete")
+    ResponseEntity<Void> delete(@PathVariable String registrationNumber){
+        doctorService.delete(registrationNumber);
+        return ResponseEntity.ok().build();
+    }
 }

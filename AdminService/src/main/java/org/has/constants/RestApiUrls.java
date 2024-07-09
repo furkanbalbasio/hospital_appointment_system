@@ -8,5 +8,5 @@ public class RestApiUrls {
     public static final String CREATEDOCTOR ="/create-doctor";
     public static final String FINDALLDOCTOR ="/find-all-doctor";
     public static final String UPDATEDOCTOR ="/update-doctor";
-
+    public static final String DELETEDOCTOR ="/delete-doctor";
 }

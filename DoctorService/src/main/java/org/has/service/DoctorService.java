@@ -1,5 +1,6 @@
 package org.has.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.has.dto.request.DoctorSaveRequestDto;
 import org.has.dto.request.DoctorUpdateRequestDto;
@@ -29,16 +30,27 @@ public class DoctorService {
         return doctors;
     }
 
-
-  public void update(String registrationNumber, DoctorUpdateRequestDto dto){
+@Transactional
+  public void update(String registrationNumber,DoctorUpdateRequestDto dto){
       Optional<Doctor> doctorOptional = doctorRepository.findByRegistrationNumber(registrationNumber);
-       if (doctorOptional.isPresent()) {
-            Doctor doctor = doctorOptional.get();
-           doctorRepository.save(doctor);
-        } else {
-           System.out.println("bulunamadı");
+      doctorOptional.ifPresentOrElse(doctor -> {
+          doctor.setDepartment(dto.getDepartment());
+          doctor.setEmail(dto.getEmail());
+          doctor.setPhone(dto.getPhone());
+          doctorRepository.save(doctor);
+      }, () -> {
+          System.out.println("bulunamadı");
+      });
         }
-    }
 
+
+    public void delete(String registrationNumber) {
+        Optional<Doctor> doctorOptional = doctorRepository.findByRegistrationNumber(registrationNumber);
+        doctorOptional.ifPresentOrElse(doctor -> {
+            doctorRepository.delete(doctorOptional.get());
+        }, () -> {
+            System.out.println("bulunamadı");
+        });
     }
+}
 
