@@ -47,8 +47,8 @@ public class AdminController {
                         .data(adminService.findAllDoctor(token))
                 .build());
     }
-    @PutMapping("/{/registrationNumber}/update")
-    public ResponseEntity<Void> updateDoctor(String token,@PathVariable("registrationNumber") String registrationNumber, DoctorUpdateRequestDto dto){
+    @PutMapping("/{registrationNumber}/update")
+    public ResponseEntity<Void> updateDoctor(String token,@PathVariable String registrationNumber, DoctorUpdateRequestDto dto){
         adminService.updateDoctor(token, registrationNumber,dto);
         return ResponseEntity.ok().build();
     }

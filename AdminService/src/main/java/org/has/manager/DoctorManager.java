@@ -16,7 +16,7 @@ public interface DoctorManager {
     ResponseEntity<Void> save(@RequestBody @Valid DoctorSaveRequestDto dto);
     @GetMapping("/find-all")
     ResponseEntity<List<DoctorFindAllResponseDto>> findAll();
-    @PutMapping("/{/registrationNumber}/update")
-    ResponseEntity<Void> update(@PathVariable("registrationNumber") String registrationNumber, DoctorUpdateRequestDto dto);
+    @PutMapping("/{registrationNumber}/update")
+    ResponseEntity<Void> update(@PathVariable String registrationNumber, DoctorUpdateRequestDto dto);
 
 }

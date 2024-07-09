@@ -28,8 +28,8 @@ public class DoctorController {
         List<Doctor> doctors = doctorService.findAll();
         return ResponseEntity.ok(doctors);
     }
-    @PutMapping("/{/registrationNumber}/update")
-    public ResponseEntity<Void> update(@PathVariable("registrationNumber")String registrationNumber, DoctorUpdateRequestDto dto){
+    @PutMapping("/{registrationNumber}/update")
+    public ResponseEntity<Void> update(@PathVariable String registrationNumber, DoctorUpdateRequestDto dto){
         doctorService.update(registrationNumber,dto);
         return ResponseEntity.ok().build();
   }
