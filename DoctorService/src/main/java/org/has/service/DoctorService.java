@@ -21,7 +21,6 @@ public class DoctorService {
 
     public Doctor save(DoctorSaveRequestDto dto) {
         Doctor doctor= doctorRepository.save(DoctorMapper.INSTANCE.fromDto(dto));
-//        doctor.setUuid(UUID.randomUUID()); // save den önce set etmesi gerekmiyor mu ?!
         return doctor;
     }
 

@@ -3,16 +3,17 @@ package org.has.dto.response;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class FindAllResponseDto {
+@AllArgsConstructor
+@RequiredArgsConstructor
+@Data
+public class FindAllSecretaryResponseDto {
     int statusCode;
     String message;
-    List<DoctorFindAllResponseDto> data;
+    List<SecretaryFindAllResponseDto> data;
+
 }

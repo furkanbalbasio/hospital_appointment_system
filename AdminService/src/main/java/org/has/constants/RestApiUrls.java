@@ -9,4 +9,6 @@ public class RestApiUrls {
     public static final String FINDALLDOCTOR ="/find-all-doctor";
     public static final String UPDATEDOCTOR ="/update-doctor";
     public static final String DELETEDOCTOR ="/delete-doctor";
+    public static final String CREATESECRETARY ="/create-secretary";
+    public static final String FINDALLSECRETARY ="/find-all-secretary";
 }

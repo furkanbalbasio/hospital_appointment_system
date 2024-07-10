@@ -1,11 +1,55 @@
 package org.has.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.has.dto.request.SecretarySaveRequestDto;
+import org.has.dto.request.SecretaryUpdateRequestDto;
+import org.has.mapper.SecretaryMapper;
 import org.has.repository.SecretaryRepository;
+import org.has.repository.entity.Secretary;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class SecretaryService {
     private final SecretaryRepository secretaryRepository;
+
+    public Secretary save(SecretarySaveRequestDto dto) {
+        Secretary secretary= secretaryRepository.save(SecretaryMapper.INSTANCE.fromDto(dto));
+        return secretary;
+    }
+
+    public List<Secretary> findAll() {
+        List<Secretary> secretaries = secretaryRepository.findAll();
+        return secretaries;
+    }
+
+    @Transactional
+    public void update(String registrationNumber, SecretaryUpdateRequestDto dto){
+        Optional<Secretary> secretaryOptional = secretaryRepository.findByRegistrationNumber(registrationNumber);
+        secretaryOptional.ifPresentOrElse(secretary -> {
+            secretary.setEmail(dto.getEmail());
+            secretary.setPhone(dto.getPhone());
+            secretary.setSurname(dto.getSurname());
+            secretary.setName(dto.getName());
+            secretary.setPassword(dto.getPassword());
+            secretaryRepository.save(secretary);
+        }, () -> {
+            System.out.println("bulunamadı");
+        });
+    }
+
+
+    public void delete(String registrationNumber) {
+        Optional<Secretary> secretaryOptional = secretaryRepository.findByRegistrationNumber(registrationNumber);
+        secretaryOptional.ifPresentOrElse(secretary -> {
+            secretaryRepository.delete(secretaryOptional.get());
+        }, () -> {
+            System.out.println("bulunamadı");
+        });
+    }
 }
+

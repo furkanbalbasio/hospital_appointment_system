@@ -2,12 +2,10 @@ package org.has.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.has.dto.request.DoctorSaveRequestDto;
-import org.has.dto.request.DoctorUpdateRequestDto;
-import org.has.dto.request.LoginRequestDto;
+import org.has.dto.request.*;
 import org.has.dto.response.BaseResponseDto;
-import org.has.dto.response.DoctorFindAllResponseDto;
-import org.has.dto.response.FindAllResponseDto;
+import org.has.dto.response.FindAllDoctorResponseDto;
+import org.has.dto.response.FindAllSecretaryResponseDto;
 import org.has.dto.response.LoginResponseDto;
 import org.has.service.AdminService;
 import org.springframework.http.ResponseEntity;
@@ -40,8 +38,8 @@ public class AdminController {
     }
 
     @GetMapping(FINDALLDOCTOR)
-    public ResponseEntity<FindAllResponseDto> findAllDoctor(String token){
-        return ResponseEntity.ok(FindAllResponseDto.builder()
+    public ResponseEntity<FindAllDoctorResponseDto> findAllDoctor(String token){
+        return ResponseEntity.ok(FindAllDoctorResponseDto.builder()
                         .message("basarili")
                         .statusCode(200)
                         .data(adminService.findAllDoctor(token))
@@ -58,5 +56,31 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping(CREATESECRETARY)
+    public ResponseEntity<Void> createSecretary(String token, SecretarySaveRequestDto dto){
+        adminService.createSecretary(token,dto);
+                return ResponseEntity.ok().build();
+    }
+    @GetMapping(FINDALLSECRETARY)
+    public ResponseEntity<FindAllSecretaryResponseDto> findAllSecretary(String token){
+        return ResponseEntity.ok(FindAllSecretaryResponseDto.builder()
+                .message("basarili")
+                .statusCode(200)
+                .data(adminService.findAllSecretary(token))
+                .build());
+    }
+    @PutMapping("/{registrationNumber}/update-secretary")
+    public ResponseEntity<Void> updateSecretary(String token, @PathVariable String registrationNumber, @RequestBody SecretaryUpdateRequestDto dto){
+        adminService.updateSecretary(token, registrationNumber,dto);
+        return ResponseEntity.ok().build();
+    }
+    @DeleteMapping("/{registrationNumber}/delete-secretary")
+    public ResponseEntity<Void> deleteSecretary(String token, @PathVariable String registrationNumber){
+        adminService.deleteSecretary(token, registrationNumber);
+        return ResponseEntity.ok().build();
+    }
 
-}
+
+    }
+
+
