@@ -16,13 +16,13 @@ import org.has.utility.enums.State;
 public class Auth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+   private Long id;
     @Column(unique = true,length = 64, nullable = false)
-    String userName;
+   private String tcNumber;
     @Column(nullable = false,length = 128)
-    String password;
-    Long createAt;
-    Long updateAt;
-    @Enumerated(EnumType.STRING)
-    State state;
+    private String password;
+    private String name;
+    private String surname;
+    private String phone;
+    private String email;
 }

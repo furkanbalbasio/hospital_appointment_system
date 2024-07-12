@@ -1,6 +1,6 @@
 package org.has.mapper;
 
-import org.has.dto.PatienceSaveRequestDto;
+import org.has.dto.request.PatienceSaveRequestDto;
 import org.has.repository.entity.Patience;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

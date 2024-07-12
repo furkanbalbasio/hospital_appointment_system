@@ -10,6 +10,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class PatienceSaveRequestDto {
-    String userName;
-    Long authId;
+    String tcNumber;
+    Long patienceId;
+    String name;
+    String surname;
+    String phone;
+    String email;
+    String password;
+
 }
