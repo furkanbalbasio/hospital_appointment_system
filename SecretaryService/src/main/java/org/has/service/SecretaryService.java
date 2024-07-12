@@ -2,11 +2,15 @@ package org.has.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.has.dto.request.LoginRequestDto;
 import org.has.dto.request.SecretarySaveRequestDto;
 import org.has.dto.request.SecretaryUpdateRequestDto;
+import org.has.exception.ErrorType;
+import org.has.exception.SecretaryException;
 import org.has.mapper.SecretaryMapper;
 import org.has.repository.SecretaryRepository;
 import org.has.repository.entity.Secretary;
+import org.has.utility.JwtTokenManager;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +20,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SecretaryService {
     private final SecretaryRepository secretaryRepository;
+    private final JwtTokenManager jwtTokenManager;
 
     public Secretary save(SecretarySaveRequestDto dto) {
         Secretary secretary= secretaryRepository.save(SecretaryMapper.INSTANCE.fromDto(dto));
@@ -50,6 +55,15 @@ public class SecretaryService {
         }, () -> {
             System.out.println("bulunamadı");
         });
+    }
+    public String login(LoginRequestDto dto) {
+        Optional<Secretary> auth = secretaryRepository.findOptionalByEmailAndPassword(dto.getEmail(), dto.getPassword());
+        if (auth.isEmpty()) throw new SecretaryException(ErrorType.USERNAME_PASSWORD_ERROR);
+
+        Optional<String> jwtToken = jwtTokenManager.createToken(auth.get().getId());
+        if (jwtToken.isEmpty())
+            throw new SecretaryException(ErrorType.TOKEN_ERROR);
+        return jwtToken.get();
     }
 }
 

@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface SecretaryRepository extends JpaRepository<Secretary,Long> {
     Optional<Secretary> findByRegistrationNumber(String registrationNumber);
+
+    Optional<Secretary> findOptionalByEmailAndPassword(String email, String password);
 }
