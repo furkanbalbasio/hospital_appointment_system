@@ -26,4 +26,10 @@ public class PatienceController {
         return ResponseEntity.ok().build();
     }
 
+    /**
+     * TODO: FeignClient ile hasta kendine randevu oluşturacak. AppointmentService'e managerla gönderilecek.Sonra RabbitMQ'ya çevrilmeli.
+     * TODO: Doktorun randevu tarihlerinin doluluğunu booleanla tutmalıyız. boş günlerden biri seçilmediyse hata verecek. LocalDate olabilir. bakacağız.
+     *
+     */
+
 }
