@@ -9,13 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PatienceSaveRequestDto {
-    String tcNumber;
-    Long patienceId;
-    String name;
-    String surname;
-    String phone;
-    String email;
-    String password;
-
+public class SecretarySaveRequestDto {
+     String registrationNumber;
+     String name;
+     String surname;
+     String phone;
+     String email;
+     String password;
 }

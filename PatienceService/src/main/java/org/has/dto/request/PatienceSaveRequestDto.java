@@ -1,4 +1,4 @@
-package org.has.dto;
+package org.has.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class PatienceSaveRequestDto {
-    String userName;
-    Long authId;
+    String tcNumber;
+    Long patienceId;
+    String name;
+    String surname;
+    String phone;
+    String email;
+    String password;
 }

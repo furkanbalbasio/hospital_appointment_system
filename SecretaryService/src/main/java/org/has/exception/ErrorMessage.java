@@ -1,15 +1,18 @@
-package org.has.dto.request;
+package org.has.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class LoginRequestDto {
-    String tcNumber;
-    String password;
+public class ErrorMessage {
+    int code;
+    String message;
+    List<String> fields;
 }

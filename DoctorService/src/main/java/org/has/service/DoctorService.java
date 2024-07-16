@@ -9,6 +9,7 @@ import org.has.exception.ErrorType;
 import org.has.mapper.DoctorMapper;
 import org.has.repository.DoctorRepository;
 import org.has.repository.entity.Doctor;
+import org.has.utility.enums.EDepartment;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,6 @@ public class DoctorService {
 
     public Doctor save(DoctorSaveRequestDto dto) {
         Doctor doctor= doctorRepository.save(DoctorMapper.INSTANCE.fromDto(dto));
-//        doctor.setUuid(UUID.randomUUID()); // save den önce set etmesi gerekmiyor mu ?!
         return doctor;
     }
 
@@ -51,6 +51,9 @@ public class DoctorService {
         }, () -> {
             System.out.println("bulunamadı");
         });
+    }
+    public Optional<List<Doctor>> findByDepartment(EDepartment department){
+       return doctorRepository.findByDepartment(department);
     }
 }
 

@@ -1,21 +1,15 @@
-package org.has.repository.entity;
+package org.has.dto.response;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table(name = "tbl_secretary")
-public class Secretary {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@RequiredArgsConstructor
+public class SecretaryFindAllResponseDto {
     private String registrationNumber;
     private String name;
     private String surname;

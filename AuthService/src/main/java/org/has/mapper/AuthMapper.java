@@ -16,6 +16,6 @@ public interface AuthMapper {
     Auth fromDto(final RegisterRequestDto dto);
 
     //List<Auth> authListFromDto(final List<RegisterRequestDto> dtos);
-    @Mapping(source = "id",target = "authId")
+    @Mapping(source = "id",target = "patienceId")
     PatienceSaveRequestDto fromAuth(final Auth auth);
 }

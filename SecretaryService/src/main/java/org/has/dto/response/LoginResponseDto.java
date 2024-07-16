@@ -1,4 +1,4 @@
-package org.has.dto.request;
+package org.has.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class LoginRequestDto {
-    String tcNumber;
-    String password;
+public class LoginResponseDto {
+    boolean isLogin;
+    String token;
 }

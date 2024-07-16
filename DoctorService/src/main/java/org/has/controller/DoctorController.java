@@ -6,6 +6,7 @@ import org.has.dto.request.DoctorSaveRequestDto;
 import org.has.dto.request.DoctorUpdateRequestDto;
 import org.has.repository.entity.Doctor;
 import org.has.service.DoctorService;
+import org.has.utility.enums.EDepartment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,5 +38,9 @@ public class DoctorController {
     ResponseEntity<Void> delete(@PathVariable String registrationNumber){
         doctorService.delete(registrationNumber);
         return ResponseEntity.ok().build();
+    }
+    @GetMapping("/find-by-department")
+    ResponseEntity<List<Doctor>> findByDepartment(@RequestParam("department") EDepartment department){
+        return ResponseEntity.ok(doctorService.findByDepartment(department).get());
     }
 }

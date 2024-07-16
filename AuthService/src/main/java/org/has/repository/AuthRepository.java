@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface AuthRepository extends JpaRepository<Auth,Long> {
-    Optional<Auth> findOptionalByUserNameAndPassword(String userName, String password);
+    Optional<Auth> findOptionalByTcNumberAndPassword(String tcNumber, String password);
 
-    Optional<Auth> findOptionalByUserName(String userName);
+    Optional<Auth> findOptionalByTcNumber(String tcNumber);
 }
