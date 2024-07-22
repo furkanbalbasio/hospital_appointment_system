@@ -39,8 +39,8 @@ public class DoctorController {
         doctorService.delete(registrationNumber);
         return ResponseEntity.ok().build();
     }
-    @GetMapping("/find-by-department")
-    ResponseEntity<List<Doctor>> findByDepartment(@RequestParam("department") EDepartment department){
-        return ResponseEntity.ok(doctorService.findByDepartment(department).get());
+    @GetMapping("/find-by-department-and-id")
+    ResponseEntity<Long> findByDepartmentAndId(@RequestParam("department") EDepartment department, @RequestParam(value = "doctorId", required = false) Long doctorId){
+        return ResponseEntity.ok(doctorService.findByDepartmentAndId(department,doctorId));
     }
 }

@@ -10,9 +10,13 @@ import org.has.mapper.DoctorMapper;
 import org.has.repository.DoctorRepository;
 import org.has.repository.entity.Doctor;
 import org.has.utility.enums.EDepartment;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -52,8 +56,21 @@ public class DoctorService {
             System.out.println("bulunamadı");
         });
     }
-    public Optional<List<Doctor>> findByDepartment(EDepartment department){
-       return doctorRepository.findByDepartment(department);
+
+
+    public Long findByDepartmentAndId(EDepartment department, Long doctorId) {
+        Optional<List<Doctor>> doctorListOpt = doctorRepository.findByDepartment(department);
+        if (!doctorListOpt.isPresent() || doctorListOpt.get().isEmpty()) {
+            throw new  DoctorException(ErrorType.BAD_REQUEST_ERROR);
+        }
+        List<Doctor> doctorList = doctorListOpt.get();
+        Optional<Doctor> doctorOpt = doctorList.stream()
+                .filter(doctor -> doctor.getId().equals(doctorId))
+                .findFirst();
+        if (!doctorOpt.isPresent()) {
+            throw new DoctorException(ErrorType.BAD_REQUEST_ERROR);
+        }
+        return doctorOpt.get().getId();
     }
 }
 

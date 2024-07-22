@@ -12,4 +12,6 @@ public interface DoctorRepository extends JpaRepository<Doctor,Long> {
 //    Optional<Doctor> findByUuid(UUID uuid);
 Optional<Doctor> findByRegistrationNumber(String registrationNumber); // Sicil numarasına göre doktor bulmak için
 Optional<List<Doctor>> findByDepartment(EDepartment department);
+
+
 }

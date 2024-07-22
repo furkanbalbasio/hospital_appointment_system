@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.has.utility.enums.EDepartment;
-
-import java.time.LocalDateTime;
+import org.has.utility.enums.AppointmentHours;
 
 @Data
 @NoArgsConstructor
@@ -21,7 +19,5 @@ public class Appointment {
     private Long id;
     private Long patienceId;
     private Long doctorId;
-    private LocalDateTime appointmentDate;
-    private boolean state;
-    private EDepartment department;
+    private AppointmentHours appointmentHours;
 }
