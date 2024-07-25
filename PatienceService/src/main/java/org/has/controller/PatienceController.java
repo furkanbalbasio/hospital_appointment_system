@@ -7,6 +7,9 @@ import org.has.dto.request.PatienceSaveRequestDto;
 import org.has.repository.entity.Patience;
 import org.has.service.PatienceService;
 
+import org.has.utility.enums.AppointmentDate;
+import org.has.utility.enums.AppointmentHours;
+import org.has.utility.enums.EDepartment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,10 +29,11 @@ public class PatienceController {
         return ResponseEntity.ok().build();
     }
 
-    /**
-     * TODO: FeignClient ile hasta kendine randevu oluşturacak. AppointmentService'e managerla gönderilecek.Sonra RabbitMQ'ya çevrilmeli.
-     * TODO: Doktorun randevu tarihlerinin doluluğunu booleanla tutmalıyız. boş günlerden biri seçilmediyse hata verecek. LocalDate olabilir. bakacağız.
-     *
-     */
+    @PostMapping("/make-appointment")
+    public ResponseEntity<Void> makeAppointment(Long patienceId, EDepartment department, Long doctorId, AppointmentDate appointmentDate, AppointmentHours appointmentHours){
+        patienceService.makeAppointment(patienceId,department,doctorId,appointmentDate,appointmentHours);
+        return ResponseEntity.ok().build();
+    }
+
 
 }

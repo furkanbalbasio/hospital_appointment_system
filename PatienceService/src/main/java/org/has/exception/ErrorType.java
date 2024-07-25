@@ -16,9 +16,8 @@ public enum ErrorType {
     TOKEN_ERROR(1004,"Token üretilemedi, lütfen tekrar giriş yapmayı deneyiniz.", HttpStatus.INTERNAL_SERVER_ERROR),
     KAYITLI_KULLANICI_ADI(1003,"Bu kullanıcı adı zaten kayıtlıdır",HttpStatus.BAD_REQUEST),
     RANDEVU_DOLU(1005,"Bu randevu doludur",HttpStatus.BAD_REQUEST),
-    HASTA_BULUNMAMAKTADIR(1007,"Hasta bulunmamaktadir",HttpStatus.BAD_REQUEST),
-    DOKTOR_BULUNMAMAKTADIR(1006,"Doktor Bulunmamaktadır.",HttpStatus.BAD_REQUEST);
-
+    DOKTOR_BULUNMAMAKTADIR(1006,"Doktor Bulunmamaktadır.",HttpStatus.BAD_REQUEST),
+    HASTA_BULUNMAMAKTADIR(1007,"Hasta bulunmamaktadir",HttpStatus.BAD_REQUEST);
 
     private int code;
     private String message;

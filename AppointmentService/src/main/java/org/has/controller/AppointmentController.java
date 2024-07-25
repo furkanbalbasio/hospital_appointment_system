@@ -19,7 +19,7 @@ import static org.has.constants.RestApiUrls.*;
 @RequestMapping(APPOINTMENT)
 public class AppointmentController {
     private final AppointmentService appointmentService;
-    @PostMapping("/save")
+    @PostMapping("/save-appointment")
     public ResponseEntity<Void> save(Long patienceId, EDepartment department, Long doctorId, AppointmentDate appointmentDate, AppointmentHours appointmentHours){
         appointmentService.save(patienceId,department,doctorId,appointmentDate,appointmentHours);
         return ResponseEntity.ok().build();
