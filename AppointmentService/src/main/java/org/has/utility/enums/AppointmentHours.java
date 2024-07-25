@@ -1,225 +1,39 @@
 package org.has.utility.enums;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import java.time.DayOfWeek;
 
 public enum AppointmentHours {
-    MON_08_00(DayOfWeek.MONDAY, "08:00"),
-    MON_08_15(DayOfWeek.MONDAY, "08:15"),
-    MON_08_30(DayOfWeek.MONDAY, "08:30"),
-    MON_08_45(DayOfWeek.MONDAY, "08:45"),
-    MON_09_00(DayOfWeek.MONDAY, "09:00"),
-    MON_09_15(DayOfWeek.MONDAY, "09:15"),
-    MON_09_30(DayOfWeek.MONDAY, "09:30"),
-    MON_09_45(DayOfWeek.MONDAY, "09:45"),
-    MON_10_00(DayOfWeek.MONDAY, "10:00"),
-    MON_10_15(DayOfWeek.MONDAY, "10:15"),
-    MON_10_30(DayOfWeek.MONDAY, "10:30"),
-    MON_10_45(DayOfWeek.MONDAY, "10:45"),
-    MON_11_00(DayOfWeek.MONDAY, "11:00"),
-    MON_11_15(DayOfWeek.MONDAY, "11:15"),
-    MON_11_30(DayOfWeek.MONDAY, "11:30"),
-    MON_11_45(DayOfWeek.MONDAY, "11:45"),
-    MON_12_00(DayOfWeek.MONDAY, "12:00"),
-    MON_12_15(DayOfWeek.MONDAY, "12:15"),
-    MON_12_30(DayOfWeek.MONDAY, "12:30"),
-    MON_12_45(DayOfWeek.MONDAY, "12:45"),
-    MON_13_00(DayOfWeek.MONDAY, "13:00"),
-    MON_13_15(DayOfWeek.MONDAY, "13:15"),
-    MON_13_30(DayOfWeek.MONDAY, "13:30"),
-    MON_13_45(DayOfWeek.MONDAY, "13:45"),
-    MON_14_00(DayOfWeek.MONDAY, "14:00"),
-    MON_14_15(DayOfWeek.MONDAY, "14:15"),
-    MON_14_30(DayOfWeek.MONDAY, "14:30"),
-    MON_14_45(DayOfWeek.MONDAY, "14:45"),
-    MON_15_00(DayOfWeek.MONDAY, "15:00"),
-    MON_15_15(DayOfWeek.MONDAY, "15:15"),
-    MON_15_30(DayOfWeek.MONDAY, "15:30"),
-    MON_15_45(DayOfWeek.MONDAY, "15:45"),
-    MON_16_00(DayOfWeek.MONDAY, "16:00"),
-    MON_16_15(DayOfWeek.MONDAY, "16:15"),
-    MON_16_30(DayOfWeek.MONDAY, "16:30"),
-    MON_16_45(DayOfWeek.MONDAY, "16:45"),
-    MON_17_00(DayOfWeek.MONDAY, "17:00"),
-
-    // Repeat for TUESDAY
-    TUE_08_00(DayOfWeek.TUESDAY, "08:00"),
-    TUE_08_15(DayOfWeek.TUESDAY, "08:15"),
-    TUE_08_30(DayOfWeek.TUESDAY, "08:30"),
-    TUE_08_45(DayOfWeek.TUESDAY, "08:45"),
-    TUE_09_00(DayOfWeek.TUESDAY, "09:00"),
-    TUE_09_15(DayOfWeek.TUESDAY, "09:15"),
-    TUE_09_30(DayOfWeek.TUESDAY, "09:30"),
-    TUE_09_45(DayOfWeek.TUESDAY, "09:45"),
-    TUE_10_00(DayOfWeek.TUESDAY, "10:00"),
-    TUE_10_15(DayOfWeek.TUESDAY, "10:15"),
-    TUE_10_30(DayOfWeek.TUESDAY, "10:30"),
-    TUE_10_45(DayOfWeek.TUESDAY, "10:45"),
-    TUE_11_00(DayOfWeek.TUESDAY, "11:00"),
-    TUE_11_15(DayOfWeek.TUESDAY, "11:15"),
-    TUE_11_30(DayOfWeek.TUESDAY, "11:30"),
-    TUE_11_45(DayOfWeek.TUESDAY, "11:45"),
-    TUE_12_00(DayOfWeek.TUESDAY, "12:00"),
-    TUE_12_15(DayOfWeek.TUESDAY, "12:15"),
-    TUE_12_30(DayOfWeek.TUESDAY, "12:30"),
-    TUE_12_45(DayOfWeek.TUESDAY, "12:45"),
-    TUE_13_00(DayOfWeek.TUESDAY, "13:00"),
-    TUE_13_15(DayOfWeek.TUESDAY, "13:15"),
-    TUE_13_30(DayOfWeek.TUESDAY, "13:30"),
-    TUE_13_45(DayOfWeek.TUESDAY, "13:45"),
-    TUE_14_00(DayOfWeek.TUESDAY, "14:00"),
-    TUE_14_15(DayOfWeek.TUESDAY, "14:15"),
-    TUE_14_30(DayOfWeek.TUESDAY, "14:30"),
-    TUE_14_45(DayOfWeek.TUESDAY, "14:45"),
-    TUE_15_00(DayOfWeek.TUESDAY, "15:00"),
-    TUE_15_15(DayOfWeek.TUESDAY, "15:15"),
-    TUE_15_30(DayOfWeek.TUESDAY, "15:30"),
-    TUE_15_45(DayOfWeek.TUESDAY, "15:45"),
-    TUE_16_00(DayOfWeek.TUESDAY, "16:00"),
-    TUE_16_15(DayOfWeek.TUESDAY, "16:15"),
-    TUE_16_30(DayOfWeek.TUESDAY, "16:30"),
-    TUE_16_45(DayOfWeek.TUESDAY, "16:45"),
-    TUE_17_00(DayOfWeek.TUESDAY, "17:00"),
-
-    // Repeat for WEDNESDAY
-    WED_08_00(DayOfWeek.WEDNESDAY, "08:00"),
-    WED_08_15(DayOfWeek.WEDNESDAY, "08:15"),
-    WED_08_30(DayOfWeek.WEDNESDAY, "08:30"),
-    WED_08_45(DayOfWeek.WEDNESDAY, "08:45"),
-    WED_09_00(DayOfWeek.WEDNESDAY, "09:00"),
-    WED_09_15(DayOfWeek.WEDNESDAY, "09:15"),
-    WED_09_30(DayOfWeek.WEDNESDAY, "09:30"),
-    WED_09_45(DayOfWeek.WEDNESDAY, "09:45"),
-    WED_10_00(DayOfWeek.WEDNESDAY, "10:00"),
-    WED_10_15(DayOfWeek.WEDNESDAY, "10:15"),
-    WED_10_30(DayOfWeek.WEDNESDAY, "10:30"),
-    WED_10_45(DayOfWeek.WEDNESDAY, "10:45"),
-    WED_11_00(DayOfWeek.WEDNESDAY, "11:00"),
-    WED_11_15(DayOfWeek.WEDNESDAY, "11:15"),
-    WED_11_30(DayOfWeek.WEDNESDAY, "11:30"),
-    WED_11_45(DayOfWeek.WEDNESDAY, "11:45"),
-    WED_12_00(DayOfWeek.WEDNESDAY, "12:00"),
-    WED_12_15(DayOfWeek.WEDNESDAY, "12:15"),
-    WED_12_30(DayOfWeek.WEDNESDAY, "12:30"),
-    WED_12_45(DayOfWeek.WEDNESDAY, "12:45"),
-    WED_13_00(DayOfWeek.WEDNESDAY, "13:00"),
-    WED_13_15(DayOfWeek.WEDNESDAY, "13:15"),
-    WED_13_30(DayOfWeek.WEDNESDAY, "13:30"),
-    WED_13_45(DayOfWeek.WEDNESDAY, "13:45"),
-    WED_14_00(DayOfWeek.WEDNESDAY, "14:00"),
-    WED_14_15(DayOfWeek.WEDNESDAY, "14:15"),
-    WED_14_30(DayOfWeek.WEDNESDAY, "14:30"),
-    WED_14_45(DayOfWeek.WEDNESDAY, "14:45"),
-    WED_15_00(DayOfWeek.WEDNESDAY, "15:00"),
-    WED_15_15(DayOfWeek.WEDNESDAY, "15:15"),
-    WED_15_30(DayOfWeek.WEDNESDAY, "15:30"),
-    WED_15_45(DayOfWeek.WEDNESDAY, "15:45"),
-    WED_16_00(DayOfWeek.WEDNESDAY, "16:00"),
-    WED_16_15(DayOfWeek.WEDNESDAY, "16:15"),
-    WED_16_30(DayOfWeek.WEDNESDAY, "16:30"),
-    WED_16_45(DayOfWeek.WEDNESDAY, "16:45"),
-    WED_17_00(DayOfWeek.WEDNESDAY, "17:00"),
-
-    // Repeat for THURSDAY
-    THU_08_00(DayOfWeek.THURSDAY, "08:00"),
-    THU_08_15(DayOfWeek.THURSDAY, "08:15"),
-    THU_08_30(DayOfWeek.THURSDAY, "08:30"),
-    THU_08_45(DayOfWeek.THURSDAY, "08:45"),
-    THU_09_00(DayOfWeek.THURSDAY, "09:00"),
-    THU_09_15(DayOfWeek.THURSDAY, "09:15"),
-    THU_09_30(DayOfWeek.THURSDAY, "09:30"),
-    THU_09_45(DayOfWeek.THURSDAY, "09:45"),
-    THU_10_00(DayOfWeek.THURSDAY, "10:00"),
-    THU_10_15(DayOfWeek.THURSDAY, "10:15"),
-    THU_10_30(DayOfWeek.THURSDAY, "10:30"),
-    THU_10_45(DayOfWeek.THURSDAY, "10:45"),
-    THU_11_00(DayOfWeek.THURSDAY, "11:00"),
-    THU_11_15(DayOfWeek.THURSDAY, "11:15"),
-    THU_11_30(DayOfWeek.THURSDAY, "11:30"),
-    THU_11_45(DayOfWeek.THURSDAY, "11:45"),
-    THU_12_00(DayOfWeek.THURSDAY, "12:00"),
-    THU_12_15(DayOfWeek.THURSDAY, "12:15"),
-    THU_12_30(DayOfWeek.THURSDAY, "12:30"),
-    THU_12_45(DayOfWeek.THURSDAY, "12:45"),
-    THU_13_00(DayOfWeek.THURSDAY, "13:00"),
-    THU_13_15(DayOfWeek.THURSDAY, "13:15"),
-    THU_13_30(DayOfWeek.THURSDAY, "13:30"),
-    THU_13_45(DayOfWeek.THURSDAY, "13:45"),
-    THU_14_00(DayOfWeek.THURSDAY, "14:00"),
-    THU_14_15(DayOfWeek.THURSDAY, "14:15"),
-    THU_14_30(DayOfWeek.THURSDAY, "14:30"),
-    THU_14_45(DayOfWeek.THURSDAY, "14:45"),
-    THU_15_00(DayOfWeek.THURSDAY, "15:00"),
-    THU_15_15(DayOfWeek.THURSDAY, "15:15"),
-    THU_15_30(DayOfWeek.THURSDAY, "15:30"),
-    THU_15_45(DayOfWeek.THURSDAY, "15:45"),
-    THU_16_00(DayOfWeek.THURSDAY, "16:00"),
-    THU_16_15(DayOfWeek.THURSDAY, "16:15"),
-    THU_16_30(DayOfWeek.THURSDAY, "16:30"),
-    THU_16_45(DayOfWeek.THURSDAY, "16:45"),
-    THU_17_00(DayOfWeek.THURSDAY, "17:00"),
-
-    // Repeat for FRIDAY
-    FRI_08_00(DayOfWeek.FRIDAY, "08:00"),
-    FRI_08_15(DayOfWeek.FRIDAY, "08:15"),
-    FRI_08_30(DayOfWeek.FRIDAY, "08:30"),
-    FRI_08_45(DayOfWeek.FRIDAY, "08:45"),
-    FRI_09_00(DayOfWeek.FRIDAY, "09:00"),
-    FRI_09_15(DayOfWeek.FRIDAY, "09:15"),
-    FRI_09_30(DayOfWeek.FRIDAY, "09:30"),
-    FRI_09_45(DayOfWeek.FRIDAY, "09:45"),
-    FRI_10_00(DayOfWeek.FRIDAY, "10:00"),
-    FRI_10_15(DayOfWeek.FRIDAY, "10:15"),
-    FRI_10_30(DayOfWeek.FRIDAY, "10:30"),
-    FRI_10_45(DayOfWeek.FRIDAY, "10:45"),
-    FRI_11_00(DayOfWeek.FRIDAY, "11:00"),
-    FRI_11_15(DayOfWeek.FRIDAY, "11:15"),
-    FRI_11_30(DayOfWeek.FRIDAY, "11:30"),
-    FRI_11_45(DayOfWeek.FRIDAY, "11:45"),
-    FRI_12_00(DayOfWeek.FRIDAY, "12:00"),
-    FRI_12_15(DayOfWeek.FRIDAY, "12:15"),
-    FRI_12_30(DayOfWeek.FRIDAY, "12:30"),
-    FRI_12_45(DayOfWeek.FRIDAY, "12:45"),
-    FRI_13_00(DayOfWeek.FRIDAY, "13:00"),
-    FRI_13_15(DayOfWeek.FRIDAY, "13:15"),
-    FRI_13_30(DayOfWeek.FRIDAY, "13:30"),
-    FRI_13_45(DayOfWeek.FRIDAY, "13:45"),
-    FRI_14_00(DayOfWeek.FRIDAY, "14:00"),
-    FRI_14_15(DayOfWeek.FRIDAY, "14:15"),
-    FRI_14_30(DayOfWeek.FRIDAY, "14:30"),
-    FRI_14_45(DayOfWeek.FRIDAY, "14:45"),
-    FRI_15_00(DayOfWeek.FRIDAY, "15:00"),
-    FRI_15_15(DayOfWeek.FRIDAY, "15:15"),
-    FRI_15_30(DayOfWeek.FRIDAY, "15:30"),
-    FRI_15_45(DayOfWeek.FRIDAY, "15:45"),
-    FRI_16_00(DayOfWeek.FRIDAY, "16:00"),
-    FRI_16_15(DayOfWeek.FRIDAY, "16:15"),
-    FRI_16_30(DayOfWeek.FRIDAY, "16:30"),
-    FRI_16_45(DayOfWeek.FRIDAY, "16:45"),
-    FRI_17_00(DayOfWeek.FRIDAY, "17:00");
-
-    private final DayOfWeek dayOfWeek;
+    HOUR_08_00("08:00"), HOUR_08_15("08:15"), HOUR_08_30("08:30"), HOUR_08_45("08:45"),
+    HOUR_09_00("09:00"), HOUR_09_15("09:15"), HOUR_09_30("09:30"), HOUR_09_45("09:45"),
+    HOUR_10_00("10:00"), HOUR_10_15("10:15"), HOUR_10_30("10:30"), HOUR_10_45("10:45"),
+    HOUR_11_00("11:00"), HOUR_11_15("11:15"), HOUR_11_30("11:30"), HOUR_11_45("11:45"),
+    HOUR_12_00("12:00"), HOUR_12_15("12:15"), HOUR_12_30("12:30"), HOUR_12_45("12:45"),
+    HOUR_13_00("13:00"), HOUR_13_15("13:15"), HOUR_13_30("13:30"), HOUR_13_45("13:45"),
+    HOUR_14_00("14:00"), HOUR_14_15("14:15"), HOUR_14_30("14:30"), HOUR_14_45("14:45"),
+    HOUR_15_00("15:00"), HOUR_15_15("15:15"), HOUR_15_30("15:30"), HOUR_15_45("15:45"),
+    HOUR_16_00("16:00"), HOUR_16_15("16:15"), HOUR_16_30("16:30"), HOUR_16_45("16:45");
     private final String time;
-    private boolean isBooked;
 
-    AppointmentHours(DayOfWeek dayOfWeek, String time) {
-        this.dayOfWeek = dayOfWeek;
+    AppointmentHours(String time) {
         this.time = time;
-        this.isBooked = false; // Varsayılan olarak dolu değil
-    }
-
-    public DayOfWeek getDayOfWeek() {
-        return dayOfWeek;
     }
 
     public String getTime() {
         return time;
     }
 
-    public boolean isBooked() {
-        return isBooked;
+    public static AppointmentHours fromString(String time) {
+        for (AppointmentHours appointmentHour : AppointmentHours.values()) {
+            if (appointmentHour.getTime().equals(time)) {
+                return appointmentHour;
+            }
+        }
+        throw new IllegalArgumentException("No constant with text " + time + " found");
     }
-
-    public void setBooked(boolean isBooked) {
-        this.isBooked = isBooked;
+    @Override
+    public String toString() {
+        return time;
     }
 }

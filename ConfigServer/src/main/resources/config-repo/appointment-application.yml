@@ -10,3 +10,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+
+my-application-appointment:
+  doctor-end-point: http://localhost:9091/doctor
+  secret-key: "bAjAfl&ato9ruwrichlyUc1Lfaprafr8soNoCr!BramaTR7mojicr1wRI0*oC3is"
+  secret-key-2: ${SECRETKEY}
