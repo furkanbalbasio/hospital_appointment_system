@@ -9,6 +9,9 @@ import org.has.dto.response.BaseResponseDto;
 import org.has.dto.response.LoginResponseDto;
 import org.has.repository.entity.Secretary;
 import org.has.service.SecretaryService;
+import org.has.utility.enums.AppointmentDate;
+import org.has.utility.enums.AppointmentHours;
+import org.has.utility.enums.EDepartment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,6 +56,14 @@ public class SecretaryController {
                         .token(token)
                         .build())
                 .build());
+    }
+    @PostMapping("/create-patience-appointment")
+    public ResponseEntity<Void> createPatienceAppointment(String token,@RequestParam("patienceId") Long patienceId,@RequestParam("department") EDepartment department,
+                                                          @RequestParam("doctorId") Long doctorId,
+                                                          @RequestParam("appointmentDate") AppointmentDate appointmentDate,
+                                                        @RequestParam("appointmentHours") AppointmentHours appointmentHours){
+        secretaryService.createPatienceAppointment(token,patienceId,department,doctorId,appointmentDate,appointmentHours);
+        return ResponseEntity.ok().build();
     }
 }
 

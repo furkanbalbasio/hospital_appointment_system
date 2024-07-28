@@ -28,12 +28,21 @@ public class PatienceController {
         Patience user =   patienceService.save(dto);
         return ResponseEntity.ok().build();
     }
-
-    @PostMapping("/make-appointment")
-    public ResponseEntity<Void> makeAppointment(Long patienceId, EDepartment department, Long doctorId, AppointmentDate appointmentDate, AppointmentHours appointmentHours){
-        patienceService.makeAppointment(patienceId,department,doctorId,appointmentDate,appointmentHours);
+    @PostMapping("/create-appointment")
+    public ResponseEntity<Void> createAppointment(@RequestParam("patienceId") Long patienceId,@RequestParam("department") EDepartment department,
+                                                @RequestParam("doctorId") Long doctorId,
+                                                @RequestParam("appointmentDate") AppointmentDate appointmentDate,
+                                                @RequestParam("appointmentHours") AppointmentHours appointmentHours){
+        patienceService.createAppointment(patienceId,department,doctorId,appointmentDate,appointmentHours);
         return ResponseEntity.ok().build();
     }
 
-
+    @PostMapping("/make-appointment")
+    public ResponseEntity<Void> makeAppointment(String token,@RequestParam("department") EDepartment department,
+                                                @RequestParam("doctorId") Long doctorId,
+                                                @RequestParam("appointmentDate") AppointmentDate appointmentDate,
+                                                @RequestParam("appointmentHours") AppointmentHours appointmentHours){
+        patienceService.makeAppointment(token,department,doctorId,appointmentDate,appointmentHours);
+        return ResponseEntity.ok().build();
+    }
 }

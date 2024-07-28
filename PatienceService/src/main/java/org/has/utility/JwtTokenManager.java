@@ -13,12 +13,23 @@ import java.util.Optional;
 
 @Service
 public class JwtTokenManager {
-
-    @Value("${my-application-secretary.secret-key}")
+    /**
+     * SecretKey -> Şifreleme için özel bir anahtar.
+     * Issuer -> jwt yi oluşturan, sahiplik
+     * IssuerAt -> jwt nin oluşturulma zamanı
+     * ExpiresAt -> jwt nin geçerlilik son zamanı
+     * Sign -> jwt nin imzalanması yani bir şifreleme algoritması ile şifrelenmesi.
+     */
+    @Value("${my-application-patience.secret-key}")
     private  String SECRETKEY;
     private final String ISSUER = "Java11BoostAuth";
-    private final Long EXDATE = 1000L*60*5; // 5 Dakika
-
+    private final Long EXDATE = 1000L*60*60; // 5 Dakika
+    /**
+     * Kullanıcının authId si alınarak yeni bir jwt token üretilir.
+     *
+     * @param authId
+     * @return
+     */
     public Optional<String> createToken(Long authId){
         String token;
         try{
@@ -38,17 +49,34 @@ public class JwtTokenManager {
         }
     }
 
-
+    /**
+     *
+     * @param token
+     * @return
+     */
     public boolean validateToken(String token){
         try{
-
+            /**
+             * Şifrelediğimiz token için şifreyi çözme ve doğrulama işlemi için
+             * alogitmayı tanımlıyoruz.
+             */
             Algorithm algorithm = Algorithm.HMAC512(SECRETKEY);
-
+            /**
+             * token' ı doğrulayabilmek için algoritayı kullanarak token
+             * sahipliğini giriyoruz.
+             */
             JWTVerifier verifier = JWT.require(algorithm)
                                       .withIssuer(ISSUER).build();
-
+            /**
+             * verifier ile token' ı çözüyoruz.
+             */
             DecodedJWT decodedJWT = verifier.verify(token);
-
+            /**
+             * Eğer ilgili token çözülememiş ise false dönülür.
+             * 1-> token yanlış gelmiş olabilir.
+             * 2-> token süresi dolmuş olabilir.
+             * 3-> farklı bir sahiplik gönderilmiş olabilir.
+             */
             if(decodedJWT==null)
                 return false;
         }catch (Exception exception){
@@ -57,7 +85,11 @@ public class JwtTokenManager {
         return  true;
     }
 
-
+    /**
+     * token verip kime ait olduğunu dönuyoruz.
+     * @param token
+     * @return
+     */
     public Optional<Long> getIdByToken(String token){
         try{
             Algorithm algorithm = Algorithm.HMAC512(SECRETKEY);
