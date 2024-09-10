@@ -32,6 +32,7 @@ allprojects {
         }
     }
     dependencies {
+        testImplementation 'org.springframework.kafka:spring-kafka-test'
         implementation libs.springBootStarterWeb
         implementation libs.swaggerui
         compileOnly libs.lombok

@@ -3,6 +3,7 @@ package org.has.service;
 import lombok.RequiredArgsConstructor;
 import org.has.exception.AppointmentException;
 import org.has.exception.ErrorType;
+import org.has.rabbitmq.model.AppointmentModel;
 import org.has.manager.DoctorManager;
 import org.has.repository.AppointmentDetailsRepository;
 import org.has.repository.AppointmentRepository;
@@ -12,10 +13,7 @@ import org.has.utility.enums.AppointmentDate;
 import org.has.utility.enums.AppointmentHours;
 import org.has.utility.enums.EDepartment;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.util.Collections;
-import java.util.HashMap;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -53,5 +51,9 @@ public class AppointmentService {
         appointmentRepository.save(appointment);
         appointmentDetails.setBooked(true);
         appointmentDetailsRepository.save(appointmentDetails);
+    }
+    @Transactional
+    public void createAppointmentWithKafka(AppointmentModel model){
+        save(model.getPatienceId(),model.getDepartment(), model.getDoctorId(),model.getAppointmentDate(),model.getAppointmentHours());
     }
 }
